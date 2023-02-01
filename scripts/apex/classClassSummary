@@ -1,0 +1,9 @@
+1. created a class (right click on classes folder and 'sfdx create apex class')
+    - class name
+2. create a method inside the class.
+    - switchOn method.
+    - save. and deploy.
+3. Anonymous apex file
+    - create new instance of class
+    - call the method using that new instance.
+    - execute
