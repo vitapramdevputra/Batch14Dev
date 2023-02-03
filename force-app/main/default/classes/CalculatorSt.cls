@@ -1,4 +1,6 @@
 public class CalculatorSt {
+
+  /// degiklikler yapildi
   public static integer add(integer a, integer b) {
     return a+b;
   }
