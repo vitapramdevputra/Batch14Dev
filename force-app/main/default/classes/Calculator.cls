@@ -10,6 +10,7 @@ public class Calculator {
     }
 
     //parameterless method.
+    //private method which prints some default message.
     void privateMessage1(){
         system.debug('private method called.');
 
