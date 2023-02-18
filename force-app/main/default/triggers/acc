@@ -1,0 +1,20 @@
+acc
+
+insert 
+name -> a1 
+--> trigger.new -> name = a1
+
+
+update
+name -> a2
+--> trigger.new --> name = a2
+--> trigger.old --> name = a1
+
+
+update
+name -> a3
+--> trigger.new --> name = a3 
+--> trigger.old --> name = a2
+
+
+

@@ -1,5 +1,6 @@
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update) {
 
+    //to so some operation on before insert and before update we can write following if conditions
     if(Trigger.isBefore){
         //this will be true for Before insert and before update.
         system.debug('We are in BEFORE Trigger.');
