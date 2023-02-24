@@ -6,6 +6,11 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
     }
 
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        //call handler method to update vip of all contacts.
+        AccountTriggerHandler.updateVIPforContact(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+    }
+
 
 
 
