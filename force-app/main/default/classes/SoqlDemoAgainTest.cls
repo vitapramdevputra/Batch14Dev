@@ -20,7 +20,7 @@ public class SoqlDemoAgainTest {
         insert listAcc;
     }   
 
-    @isTest
+    @isTest(seeAllData = true)
    public static void testchildToParent_SOQL1() {//3 account
     
     //how we get those accounts here?

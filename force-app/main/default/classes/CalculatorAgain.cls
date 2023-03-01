@@ -10,6 +10,7 @@ public class CalculatorAgain {
 
     //parameterless method.
     //private method which prints some default message.
+    @testVisible
     void privateMessage1(){
         system.debug('private method called.');
 

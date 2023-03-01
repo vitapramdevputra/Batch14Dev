@@ -7,6 +7,8 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     }
 
     if (Trigger.isAfter && Trigger.isUpdate) {
+        system.debug('Trigger.isAfter ' + Trigger.isAfter);
+        system.debug('Trigger.isUpdate ' + Trigger.isUpdate);
         //call handler method to update vip of all contacts.
         AccountTriggerHandler.updateVIPforContact(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
     }

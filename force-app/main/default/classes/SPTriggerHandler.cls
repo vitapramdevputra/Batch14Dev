@@ -41,4 +41,17 @@ public class SPTriggerHandler {
             }
         }
    }
+
+   //1. STATIC
+   //2. it MUST return VOID.
+   //3. parameters: primitive datatypes or collection of primitive data types
+   @future
+   public static void updateProjectDescription(set<id> spIds) {
+        List<Salesforce_Project__c> listSP = [select id, description__c from Salesforce_Project__c where id in :spIds];
+        for (Salesforce_Project__c eachSP : listSP) {
+            eachSP.Description__c = 'Updated from future.';
+        }
+        update listSP;
+
+   }
 }
