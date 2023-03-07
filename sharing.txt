@@ -1,0 +1,21 @@
+with sharing Class A ---> USE THIS AS MUCH AS POSSIBLE
+    - method A [respect sharing rules NO matter from where it is called]
+               [class B, C, D, trigger, vf page, lwc, flow etc]
+
+
+
+without sharing Class B
+     - method B [DOES NOT respect sharing rules NO matter from where it is called]
+                [class A, C, D, trigger, vf page, lwc, flow etc]
+
+
+inherited sharing Class C
+     - method C [with Sharing if called from Class A]
+                [without sharing if called from Class B]
+                [WITH Sharing if called from trigger, vf page, lwc, flow etc]
+
+
+Class D [omitted sharing]
+     - method D [with Sharing if called from Class A]
+                [without sharing if called from Class B]
+                [WITHOUT Sharing if called from trigger, vf page, lwc, flow etc]
