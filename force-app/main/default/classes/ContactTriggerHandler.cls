@@ -13,10 +13,11 @@ public class ContactTriggerHandler {
     }
     public static void contactUpdateValidation2(List<contact> conTriggerNew, List<contact> conTriggerOld,
     Map<id, contact> conTriggerNewMap, Map<id, contact> conTriggerOldMap) {
+        string errorMessage = system.label.ContactValidation2;
         for (contact eachContact : conTriggerNew) {
             if (eachContact.LeadSource != conTriggerOldMap.get(eachContact.Id).LeadSource) {
                 //throw error on LEADSOURCE field
-                eachContact.LeadSource.addError('CANNOT UPDATE LEAD SOURCE. PLEASE USER!!!!');
+                eachContact.LeadSource.addError(errorMessage);
             }
         }
     }

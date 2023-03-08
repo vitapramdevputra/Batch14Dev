@@ -12,9 +12,10 @@ public class SPTriggerHandler {
                 insert newST;
             }
         } catch(Exception ex){
+            string errorMsg = system.label.CreateDefaultTicketError;
             //we will now catch the errors HERE.
             for (Salesforce_Project__c eachSP : spTriggerNew) {
-                eachSP.addError('Error in creating default ticket. Please contact your administrator, NOT developer');
+                eachSP.addError(errorMsg);
             }
         }
    }
