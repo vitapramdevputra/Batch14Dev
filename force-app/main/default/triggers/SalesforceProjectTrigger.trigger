@@ -1,4 +1,11 @@
 trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, after insert, before update, after update) {
+
+    //get trigger switch record for salesforce project.
+    TriggerSwitch__mdt ts = TriggerSwitch__mdt.getInstance('salesforce_project_c');
+    if(!ts.enabled__c){
+        return;
+    }
+
     if (Trigger.isafter && trigger.isinsert) {
         system.debug('call method now...');
 

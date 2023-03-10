@@ -1,11 +1,26 @@
 public class SPTriggerHandler {
    public static void createDefaultTicket(list<salesforce_project__c> spTriggerNew) {
         try {
+            //get org default value using below method from Hierarchy custom setting
+            DefaultTicketInfo__c dtInfo;
+            
+            //if user is system admin, then get value of system admin profile.
+            //else use default value
+            
+            Profile adminProfile = [select id, name from profile where name = 'System Administrator'];
+            if(UserInfo.getProfileId() == adminProfile.Id){
+                dtInfo = DefaultTicketInfo__c.getInstance(adminProfile.Id);
+            } else {
+                dtInfo = DefaultTicketInfo__c.getOrgDefaults();
+            }
+
             List<Salesforce_Ticket__c> newST = new List<Salesforce_Ticket__c>();
             for (Salesforce_Project__c eachSP : spTriggerNew) {
                 Salesforce_Ticket__c st = new Salesforce_Ticket__c();
-                st.Subject__c = 'Default ST';
+                st.Subject__c = dtInfo.Subject__c;
                 st.Salesforce_Project__c = eachSP.Id;
+                st.Priority__c = 'High';
+                st.Description__c = dtInfo.description__c;
                 newST.add(st);
             }
             if (!newST.isEmpty()) {
